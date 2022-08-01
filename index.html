@@ -12,20 +12,22 @@
   <div id="container-book">
 
     <div id="cards">
-      <h3>title book</h3>
+      <h3 id="title">title book</h3>
       <p>Author</p>
       <button>Remove</button>
       <hr>
     </div>
 
-    <form action="#">
-      <input type="text"><br>
-      <input type="text"><br>
-      <button>Add Book</button>
+    <br>
+
+    <form id="bookForm" action="#">
+      <input id="input-title"  type="text" placeholder="Title" required><br><br>
+      <input id="input-author" type="text" placeholder="Author" required><br><br>
+      <button id="add-book" type="submit">Add Book</button>
     </form>
 
   </div>
 
-  
+  <script src="script.js"></script>
 </body>
 </html>
