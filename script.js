@@ -17,38 +17,34 @@ class newBook {
 function saveInfo () {
   let newtitle = document.querySelector('#input-title').value;
   let newauthor = document.querySelector('#input-author').value;
-  let bookInfo = new newBook (newtitle, newauthor);
+
+  // Create a new Book
+  let bookInfo = new newBook (newtitle, newauthor );
+
+  // Push the book inside the collection
   collectionBooks.push(bookInfo);
+  console.log(collectionBooks);
   
   const addingBooks = () => {
-    let booksCards = '';
-  
-    for (let i = 0; i < collectionBooks.length; i += 1) {
-      const newBookAdded = `<div id="cards">
-         <h3>${collectionBooks[i].title}</h3>
-         <p>${collectionBooks[i].author}</p>
-         <button>Remove</button>
-        <hr>
-        </div>`;
-      booksCards += newBookAdded;
-    }
+    let booksCards = '';  
+
+    document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
+    `<div id="cards">
+      <h3>${items.title}</h3>
+      <p>${items.author}</p>
+      <button>Remove</button>
+      <hr>
+      </div>`
+    ).join('');
+
     booksContainer.insertAdjacentHTML('beforeend', booksCards);
   };
   return addingBooks();
 }
 
-
-
-console.log('Fuera de función:',collectionBooks);
-
+console.log(addingBooks);
 
 
 
-// document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
-// `<div id="cards">
-//   <h3>${items.newBook.title.value}</h3>
-//   <p>${items.author.value}</p>
-//   <button>Remove</button>
-//   <hr>
-//   </div>`
-// ).join('');
+
+
