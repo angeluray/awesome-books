@@ -1,25 +1,35 @@
-let collectionBooks = {};
+let collectionBooks = [];
 
-const form = document.querySelector('#bookForm');
+// const form = document.querySelector('#bookForm');
 const title = document.querySelector('#input-title');
 const author = document.querySelector('#input-author');
-const button = document.querySelector('#add-book');
+// const button = document.querySelector('#add-book');
 
-button.forEach('submit',() => {
-  console.log('funciona');
-});
+class newBook {
+  constructor (title,author){
+    this.title = title;
+    this.author = author; 
+  }
+}
 
-const getValueInput = () =>{
-  let inputValue = document.getElementById("input-title").value; 
-  console.log(inputValue);
+// check with every letter clicked
+function saveInfo () {
+  let newtitle = document.querySelector('#input-title').value;
+  let newauthor = document.querySelector('#input-author').value;
+  let bookInfo = new newBook (newtitle, newauthor);
 }
 
 
-// document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
-// `<div id="cards">
-//   <h3>${title}</h3>
-//   <p>${author}</p>
-//   <button>Remove</button>
-//   <hr>
-//   </div>`
-// ).join('');
+
+console.log('Fuera de función:',collectionBooks);
+
+
+
+document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
+`<div id="cards">
+  <h3>${items.newBook.title.value}</h3>
+  <p>${items.author.value}</p>
+  <button>Remove</button>
+  <hr>
+  </div>`
+).join('');
