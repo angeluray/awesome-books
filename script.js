@@ -1,11 +1,12 @@
 let collectionBooks = [];
-const inputsObject = {};
+
 
 const title = document.querySelector('#input-title');
 const author = document.querySelector('#input-author');
 
 let position = -1;
 
+// Classe NewBook and the constructor 
 class NewBook {
   constructor(title, author, index) {
     this.title = title;
@@ -14,6 +15,7 @@ class NewBook {
   }
 }
 
+// Print the info in the browser
 function printf(collectionBooks) {
   document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
   `
@@ -45,12 +47,15 @@ function saveInfo() {
   return collectionBooks;
 }
 
+// Local Storage
+const inputsObject = {};
 document.querySelector('#bookForm').addEventListener('submit', () => {
   inputsObject.title = title.value;
   inputsObject.author = author.value;
   localStorage.setItem(title.value, JSON.stringify(inputsObject));
 });
 
+// Delete the book selected
 function deletInfo(input) {
   collectionBooks = collectionBooks.filter((collectionBooks) => {
     if (collectionBooks.index === input) {
