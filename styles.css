@@ -1,1 +1,95 @@
-/* This file was added to avoid linter issues */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+}
+
+h1 {
+  text-align: center;
+  margin: 20px ;
+}
+
+#container-book {
+  display: flex;
+  flex-direction: column;
+  border: 3px solid #000;
+  align-items: center;
+  padding: 0 10px 0 10px;
+  margin: 0 auto;
+  width: 65%;
+}
+
+#cards {
+  padding: 5px 10px 5px 10px;
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 15px;
+  font-weight: 600;
+  border: 1px solid #000;
+}
+
+.buttonRemove {
+  height: 28%;
+  width: 15%;
+  min-width: 60px;
+  text-align: center;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 4px;
+  border: 1.5px solid #000;
+  box-shadow: 2px 2px 0 0.5px black;
+  cursor: pointer;
+}
+
+hr {
+  width: 15%;
+  margin: 0 auto;
+  border: 1px solid #000;
+  border-radius: 50%;
+  background-color: black;
+  padding: 0;
+}
+
+h3 {
+  text-align: center;
+  margin: 20px;
+}
+
+#bookForm {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  width: 35%;
+  height: 85px;
+  margin: 0 auto;
+}
+
+#bookForm input {
+  width: 98%;
+  border: 2px solid #000;
+  font-weight: 600;
+  padding: 2px 4px 2px 4px;
+}
+
+.addbtn {
+  box-shadow: 2px 2px 0 0.5px black;
+  border: 1.5px solid #000;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 0 4px 0 4px ;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+input:placeholder {
+  padding-left: 10px;
+}
+

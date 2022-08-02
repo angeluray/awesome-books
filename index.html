@@ -6,19 +6,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="styles.css">
   <title>Awesome Book's Project 1</title>
+
+  <!-- Font family Lato -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
   <h1>Awesome Book's</h1>
-  <div id="container-book">
+  
+  <div id="container-book">  
   </div>
 
-  <br>
 
+  <br>
+  <hr>
+  <h3>Add a new book</h3>
   <form id="bookForm" action="#">
-    <input id="input-title"  type="text" placeholder="Title" required><br><br>
-    <input id="input-author" type="text" placeholder="Author" required><br><br>
-    <button onclick="saveInfo()" id="add-book" type="submit">Add Book</button>
+    <input id="input-title"  type="text" placeholder="Title" required>
+    <input id="input-author" type="text" placeholder="Author" required>
+    <button onclick="saveInfo()" id="add-book" type="submit" class="addbtn">Add</button>
   </form>
 
   

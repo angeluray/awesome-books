@@ -15,12 +15,13 @@ class NewBook {
 }
 
 function printf(collectionBooks) {
-  document.getElementById('container-book').innerHTML = collectionBooks.map((items) => `<div id="cards">
-    <h3>${items.title}</h3>
-    <p>${items.author}</p>
-    <button onclick="deletInfo(${items.index})">Remove</button>
-    <hr>
-    </div>`).join('');
+  document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
+  `
+  <div id="cards">
+  <p>"${items.title}" by ${items.author} </p>
+  <button class="buttonRemove" onclick="deletInfo(${items.index})">Remove</button>
+  </div>
+`).join('');
 }
 
 // check with every letter clicked
