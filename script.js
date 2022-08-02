@@ -1,50 +1,39 @@
-let collectionBooks = [];
+const collectionBooks = [];
 
 // const form = document.querySelector('#bookForm');
-const title = document.querySelector('#input-title');
-const author = document.querySelector('#input-author');
-const booksContainer = document.querySelector('#container-book')
+const booksContainer = document.querySelector('#container-book');
 // const button = document.querySelector('#add-book');
 
-class newBook {
-  constructor (title,author){
+class NewBook {
+  constructor(title, author) {
     this.title = title;
-    this.author = author; 
+    this.author = author;
   }
 }
 
 // check with every letter clicked
-function saveInfo () {
-  let newtitle = document.querySelector('#input-title').value;
-  let newauthor = document.querySelector('#input-author').value;
+function saveInfo() {
+  const newtitle = document.querySelector('#input-title').value;
+  const newauthor = document.querySelector('#input-author').value;
 
   // Create a new Book
-  let bookInfo = new newBook (newtitle, newauthor );
+  const bookInfo = new NewBook(newtitle, newauthor);
 
   // Push the book inside the collection
   collectionBooks.push(bookInfo);
-  console.log(collectionBooks);
-  
-  const addingBooks = () => {
-    let booksCards = '';  
 
-    document.getElementById('container-book').innerHTML = collectionBooks.map((items) => 
-    `<div id="cards">
+  const addingBooks = () => {
+    const booksCards = '';
+
+    document.getElementById('container-book').innerHTML = collectionBooks.map((items) => `<div id="cards">
       <h3>${items.title}</h3>
       <p>${items.author}</p>
-      <button>Remove</button>
+      <button id="remove">Remove</button>
       <hr>
-      </div>`
-    ).join('');
+      </div>`).join('');
 
     booksContainer.insertAdjacentHTML('beforeend', booksCards);
   };
   return addingBooks();
 }
-
-console.log(addingBooks);
-
-
-
-
-
+saveInfo();
