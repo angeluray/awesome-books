@@ -1,9 +1,11 @@
 let collectionBooks = [];
+const inputsObject = {};
+const cont = 0;
 
-// const form = document.querySelector('#bookForm');
+const form = document.querySelector('#bookForm');
 const title = document.querySelector('#input-title');
 const author = document.querySelector('#input-author');
-// const button = document.querySelector('#add-book');
+
 var position = -1;
 
 
@@ -23,7 +25,7 @@ function saveInfo () {
   let newauthor = document.querySelector('#input-author').value;
   
   // Counter to define the index in the colections books
-  position++;
+  position++;  
 
   // If the title or the author is empty, then don't add the book
   if( newtitle === '' || newauthor === '') {
@@ -38,6 +40,12 @@ function saveInfo () {
   printf(collectionBooks);
   return collectionBooks;
 }
+
+document.querySelector('#bookForm').addEventListener('submit', () => {
+  inputsObject.title = title.value;
+  inputsObject.author = author.value;
+  localStorage.setItem(title.value, JSON.stringify(inputsObject));
+});
 
 function deletInfo(input) {
   console.log(collectionBooks);
