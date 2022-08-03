@@ -17,20 +17,23 @@
 </head>
 <body>
 
-  <h1>Awesome Book's</h1>
+  <section>
+    <h1>Awesome Book's</h1>
+    <div id="container-book">  
+    </div>
+  </section>
+
+
+  <section>
+    <h3>Add a new book</h3>
+    <form id="bookForm" action="#">
+      <input id="input-title"  type="text" placeholder="Title" required>
+      <input id="input-author" type="text" placeholder="Author" required>
+      <button onclick="NewBook.add()" id="add-book" type="submit" class="addbtn">Add</button>
+    </form>
+  </section>
+
   
-  <div id="container-book">  
-  </div>
-
-
-  <br>
-  <hr>
-  <h3>Add a new book</h3>
-  <form id="bookForm" action="#">
-    <input id="input-title"  type="text" placeholder="Title" required>
-    <input id="input-author" type="text" placeholder="Author" required>
-    <button onclick="NewBook.add()" id="add-book" type="submit" class="addbtn">Add</button>
-  </form>
 
   
 
