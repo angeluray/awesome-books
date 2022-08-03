@@ -1,68 +1,72 @@
-let collectionBooks = [];
-const inputsObject = {};
-
-const title = document.querySelector('#input-title');
-const author = document.querySelector('#input-author');
-
-let position = -1;
-
+// Classe NewBook and the constructor
+let collectionBooks;
 class NewBook {
-  constructor(title, author, index) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.index = index;
+    // this.index = index;
+  }
+
+  // ADD book
+  static add() {
+    const newtitle = document.querySelector('#input-title').value;
+    const newauthor = document.querySelector('#input-author').value;
+
+    // If the title or the author is empty, then don't add the book
+    if (newtitle === '' || newauthor === '') {
+      return null;
+    }
+
+    // Counter to define the index in the colections books
+    // position += 1;
+
+    // Create a new Book
+    const bookInfo = new NewBook(newtitle, newauthor);
+    collectionBooks.push(bookInfo);
+
+    // Print in the html file
+    NewBook.printf(collectionBooks);
+    return collectionBooks;
+  }
+
+  // DELET book
+  static delet(input) {
+    // Delet the number by index position
+    collectionBooks.splice(input, 1);
+
+    // Upgrade the DOM
+    NewBook.printf(collectionBooks);
+
+    // Upgrade the Local Storage
+    localStorage.setItem('data', JSON.stringify(collectionBooks));
+
+    return collectionBooks;
+  }
+
+  // Print the info in to the browser
+  static printf(input) {
+    document.getElementById('container-book').innerHTML = input.map((items, index) => `
+    <div id="cards">
+    <p>"${items.title}" by ${items.author} </p>
+    <button class="buttonRemove" onclick="NewBook.delet(${index})">Remove</button>
+    </div>
+    `).join('');
+  }
+
+  static getBooks() {
+    let books = [];
+    if (localStorage.getItem('data')) {
+      books = JSON.parse(localStorage.getItem('data'));
+    }
+    return books;
   }
 }
 
-function printf(collectionBooks) {
-  document.getElementById('container-book').innerHTML = collectionBooks.map((items) => `<div id="cards">
-    <h3>${items.title}</h3>
-    <p>${items.author}</p>
-    <button onclick="deletInfo(${items.index})">Remove</button>
-    <hr>
-    </div>`).join('');
-}
+// document.addEventListener('DOMContentLoaded', )
+collectionBooks = NewBook.getBooks();
 
-// check with every letter clicked
-function saveInfo() {
-  const newtitle = document.querySelector('#input-title').value;
-  const newauthor = document.querySelector('#input-author').value;
-
-  // Counter to define the index in the colections books
-  position += 1;
-
-  // If the title or the author is empty, then don't add the book
-  if (newtitle === '' || newauthor === '') {
-    return null;
-  }
-  // Create a new Book
-  const bookInfo = new NewBook(newtitle, newauthor, position);
-  collectionBooks.push(bookInfo);
-
-  // Print in the html file
-  printf(collectionBooks);
-  return collectionBooks;
-}
+NewBook.printf(collectionBooks);
 
 document.querySelector('#bookForm').addEventListener('submit', () => {
-  inputsObject.title = title.value;
-  inputsObject.author = author.value;
-  localStorage.setItem(title.value, JSON.stringify(inputsObject));
+  localStorage.setItem('data', JSON.stringify(collectionBooks));
 });
-
-function deletInfo(input) {
-  collectionBooks = collectionBooks.filter((collectionBooks) => {
-    if (collectionBooks.index === input) {
-      position -= 1;
-    } else {
-      return true;
-    }
-    return null;
-  });
-  printf(collectionBooks);
-  return collectionBooks;
-}
-
-printf();
-saveInfo();
-deletInfo();
