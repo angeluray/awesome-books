@@ -1,12 +1,9 @@
-let collectionBooks = [];
-let position = -1;
-
 // Classe NewBook and the constructor 
 class NewBook {
-  constructor(title, author, index) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.index = index;
+    // this.index = index;
   }
 
   // ADD book
@@ -20,10 +17,10 @@ class NewBook {
   }
 
   // Counter to define the index in the colections books
-  position += 1;
+  // position += 1;
 
   // Create a new Book
-  const bookInfo = new NewBook(newtitle, newauthor, position);
+  const bookInfo = new NewBook(newtitle, newauthor);
   collectionBooks.push(bookInfo);
 
   // Print in the html file
@@ -33,55 +30,49 @@ class NewBook {
 
   // DELET book
   static delet(input) {
-  collectionBooks = collectionBooks.filter((collectionBooks) => {
-    let num = 0;
-    if (collectionBooks.index === input) {
-      if(num === 0) {
-        position -= 1;
-        num += 1; 
-      }
-    } else {
-      return true;
-    }
-    return null;
-  });
+
+  // Delet the number by index position
+  collectionBooks.splice(input,1);
+
+  // Upgrade the DOM
   NewBook.printf(collectionBooks);
+
+  // Upgrade the Local Storage
+  localStorage.setItem('data', JSON.stringify(collectionBooks));
+  
   return collectionBooks;
   }
 
   // Print the info in to the browser
   static printf(input) {
-    document.getElementById('container-book').innerHTML = input.map((items) => 
+    document.getElementById('container-book').innerHTML = input.map((items,index) => 
     `
     <div id="cards">
     <p>"${items.title}" by ${items.author} </p>
-    <button class="buttonRemove" onclick="NewBook.delet(${items.index})">Remove</button>
+    <button class="buttonRemove" onclick="NewBook.delet(${index})">Remove</button>
     </div>
     `
     ).join('');
   }
 }
 
+const lsOldData = class Storage {
+  static getBooks() {
+    let books = [];
+    if (localStorage.getItem('data')) {
+      books = JSON.parse(localStorage.getItem('data'));
+    }
+    return books;
+  } 
+}
 
+// document.addEventListener('DOMContentLoaded', )
+let collectionBooks = lsOldData.getBooks();
+console.log('información encontrada', collectionBooks);
 
-// Local Storage
-const box = [];
-const inputsObject = {};
+NewBook.printf(collectionBooks);
 
 document.querySelector('#bookForm').addEventListener('submit', () => {
-
-  const lsTitle = document.querySelector('#input-title');
-  const lsAuthor = document.querySelector('#input-author');
-
-  inputsObject.title = lsTitle.value;
-  inputsObject.author = lsAuthor.value;
-  box.push(inputsObject);
-
-  localStorage.setItem('data', JSON.stringify(inputsObject));
-  console.log('Caja', box);
-});
-
-
-
-
-
+  localStorage.setItem('data', JSON.stringify(collectionBooks));
+  }
+);
