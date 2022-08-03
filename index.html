@@ -12,20 +12,40 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400&display=swap" rel="stylesheet">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+
   <!-- Link to the JavaScript file -->
   <script src="script.js" defer></script>
 </head>
 <body>
-
-  <section>
+  <header>
+    <nav>
+      <section class="nav-bar-1">
+        <p>Awesome Books</p>
+        <ul class="nav-bar-ul">
+          <li class="border-left-none">List</li>
+          <li>Add New</li>
+          <li>Contact</li>
+        </ul>
+      </section>
+      <section class="nav-bar-2">
+        <p id="date">March 19th 2021, 9:56 am</p>
+      </section>
+    </nav>
+  </header>
+<main>
+  <section id="listContainer" class="">
     <h1>Awesome Book's</h1>
-    <div id="container-book">  
+    <div id="container-book">
     </div>
   </section>
 
 
-  <section>
-    <h3>Add a new book</h3>
+  <section id="formContainer" class="display-none">
+    <h1>Add a new book</h1>
     <form id="bookForm" action="#">
       <input id="input-title"  type="text" placeholder="Title" required>
       <input id="input-author" type="text" placeholder="Author" required>
@@ -33,10 +53,21 @@
     </form>
   </section>
 
-  
+  <section id="contactContainer" class="display-none">
+    <h1>Contact Information</h1>
+   <div class="contactContainer-2">
+    <p>Do you have any questions or you just want to say "Hello"? <br> You cand reach out to us!</p>
+    <ul>
+      <li>Our e-mail: booklist@gmail.com</li>
+      <li>Our phone number: 08005554123</li>
+      <li>Our addres Street 22, 84503 City, Country</li>
+    </ul>
+   </div>
+  </section>
+</main>
 
-  
-
-  
+<footer>
+  <p>Copyright</p>
+</footer>
 </body>
 </html>
