@@ -10,7 +10,7 @@ class NewBook {
   }
 
   // ADD book
-  static saveInfo() {
+  static add() {
   const newtitle = document.querySelector('#input-title').value;
   const newauthor = document.querySelector('#input-author').value;
 
@@ -27,16 +27,16 @@ class NewBook {
   collectionBooks.push(bookInfo);
 
   // Print in the html file
-  printf(collectionBooks);
+  NewBook.printf(collectionBooks);
   return collectionBooks;
   }
 
   // DELET book
-  static deletInfo(input) {
+  static delet(input) {
   collectionBooks = collectionBooks.filter((collectionBooks) => {
     let num = 0;
     if (collectionBooks.index === input) {
-      if(num == 0) {
+      if(num === 0) {
         position -= 1;
         num += 1; 
       }
@@ -45,22 +45,24 @@ class NewBook {
     }
     return null;
   });
-  printf(collectionBooks);
+  NewBook.printf(collectionBooks);
   return collectionBooks;
+  }
+
+  // Print the info in to the browser
+  static printf(input) {
+    document.getElementById('container-book').innerHTML = input.map((items) => 
+    `
+    <div id="cards">
+    <p>"${items.title}" by ${items.author} </p>
+    <button class="buttonRemove" onclick="NewBook.delet(${items.index})">Remove</button>
+    </div>
+    `
+    ).join('');
   }
 }
 
-// Print the info in the browser
-function printf(input) {
-  document.getElementById('container-book').innerHTML = input.map((items) => 
-  `
-  <div id="cards">
-  <p>"${items.title}" by ${items.author} </p>
-  <button class="buttonRemove" onclick="NewBook.deletInfo(${items.index})">Remove</button>
-  </div>
-  `
-).join('');
-}
+
 
 // Local Storage
 const box = [];
