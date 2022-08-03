@@ -9,7 +9,7 @@ body {
 
 h1 {
   text-align: center;
-  margin: 20px ;
+  margin: 20px;
 }
 
 #container-book {
@@ -84,7 +84,7 @@ h3 {
   position: absolute;
   right: 0;
   bottom: 0;
-  padding: 0 4px 0 4px ;
+  padding: 0 4px 0 4px;
   font-size: 12px;
   font-weight: bold;
 }
@@ -93,3 +93,10 @@ input:placeholder {
   padding-left: 10px;
 }
 
+#cards:nth-child(even) {
+  background: #fff;
+}
+
+#cards:nth-child(odd) {
+  background: #ccc;
+}
