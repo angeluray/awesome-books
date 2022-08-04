@@ -1,6 +1,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 body {
@@ -9,12 +10,12 @@ body {
   font-family: 'Comic Neue', cursive;
 }
 
-h1 {
+h2 {
   text-align: center;
   margin: 20px;
 }
 
-#listContainer h1 {
+#listContainer h2 {
   font-size: 40px;
   margin-bottom: 40px;
 }
@@ -72,7 +73,7 @@ h1 {
   margin: 0 auto;
 }
 
-#formContainer h1 {
+#formContainer h2 {
   font-size: 40px;
   margin-bottom: 40px;
 }
@@ -125,22 +126,22 @@ input:placeholder {
 }
 
 .display-none {
- display: none;
+  display: none;
 }
 
 nav {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
 }
 
 .nav-bar-1 {
-    display: flex;
-    justify-content: space-between;
-    border: 3px solid #000;
-    padding: 10px 10px;
-    margin: 15px 15px 0 15px;
-    font-weight: 700;
-    font-size: 21px;
+  display: flex;
+  justify-content: space-between;
+  border: 3px solid #000;
+  padding: 10px 10px;
+  margin: 15px 15px 0 15px;
+  font-weight: 700;
+  font-size: 21px;
 }
 
 .nav-bar-1 .nav-bar-ul {
@@ -188,20 +189,20 @@ main {
   width: 93vw;
 }
 
-#contactContainer h1 {
+#contactContainer h2 {
   font-size: 40px;
   margin-bottom: 60px;
 }
 
 #contactContainer p,
-#contactContainer ul{
+#contactContainer ul {
   font-size: 20px;
   font-weight: 700;
 }
 
 #contactContainer ul {
- padding-left: 76px;
- letter-spacing: 1px;
+  padding-left: 76px;
+  letter-spacing: 1px;
 }
 
 .contactContainer-2 {
@@ -211,10 +212,10 @@ main {
 }
 
 footer {
-    padding: 10px 10px;
-    margin: 0 15px 15px 15px;
-    border: 3px solid #000;
-    font-weight: 600;
-    font-size: 20px;
-    background-color: #fff;
+  padding: 10px 10px;
+  margin: 0 15px 15px 15px;
+  border: 3px solid #000;
+  font-weight: 600;
+  font-size: 20px;
+  background-color: #fff;
 }

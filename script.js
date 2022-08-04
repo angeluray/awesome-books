@@ -87,66 +87,60 @@ class NewBook {
     document.getElementById('date').innerHTML = `${dayWeek}, ${monthAndDay}${ordinal} ${year}, ${hour}`;
   }
 
-  static addClassDisplay (input) {
+  static addClassDisplay(input) {
     switch (input) {
       case 'list':
         document.getElementById('listContainer').style.display = '';
         document.getElementById('formContainer').style.display = 'none';
         document.getElementById('contactContainer').style.display = 'none';
-  
+
         document.getElementById('nav-list').classList.add('active');
         document.getElementById('nav-new').classList.remove('active');
         document.getElementById('nav-contact').classList.remove('active');
         break;
-      
+
       case 'addNew':
         document.getElementById('listContainer').style.display = 'none';
         document.getElementById('formContainer').style.display = '';
         document.getElementById('contactContainer').style.display = 'none';
-  
+
         document.getElementById('nav-list').classList.remove('active');
         document.getElementById('nav-new').classList.add('active');
         document.getElementById('nav-contact').classList.remove('active');
         break;
-  
+
       case 'contact':
         document.getElementById('listContainer').style.display = 'none';
         document.getElementById('formContainer').style.display = 'none';
         document.getElementById('contactContainer').style.display = '';
-        
+
         document.getElementById('nav-list').classList.remove('active');
         document.getElementById('nav-new').classList.remove('active');
         document.getElementById('nav-contact').classList.add('active');
+        break;
+
+      default:
         break;
     }
   }
 }
 
-// Call the function to add classes to the main sections 
+// Call the function to add classes to the main sections
 NewBook.addClassDisplay('addNew');
 
 // Call get date
 window.addEventListener('DOMContenLoaded', NewBook.sendDate());
-setInterval( NewBook.sendDate , 1000 );
+setInterval(NewBook.sendDate, 1000);
 
-// document.addEventListener('DOMContentLoaded', )
+// Get information from LocalStorage in to browser
 collectionBooks = NewBook.getBooks();
 NewBook.printf(collectionBooks);
 
+// Save info in LocalStorage
 document.querySelector('#bookForm').addEventListener('submit', () => {
   localStorage.setItem('data', JSON.stringify(collectionBooks));
 
-  // Clean the info inside the inputs
+  // Clean inputs info
   document.querySelector('#input-title').value = '';
   document.querySelector('#input-author').value = '';
-
 });
- 
-
-
-
-
-
-
-
-
