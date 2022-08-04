@@ -71,17 +71,19 @@ class NewBook {
     const year = hora.splice(2, 4).join(''); // Año
     const hour = hora.splice(3, 8).join(''); // Hora, minutos y segundos
 
-    if (monthAndDay.substring(4, 6) === 1 || monthAndDay.substring(4, 6) === 21) {
+    const monthAndDayStrg = monthAndDay.substring(4, 6);
+
+    if (monthAndDayStrg === 1 || monthAndDayStrg === 21) {
       ordinal = 'st';
-    } if (monthAndDay.substring(4, 6) === 2 || monthAndDay.substring(4, 6) === 22) {
+    } if (monthAndDayStrg === 2 || monthAndDayStrg === 22) {
       ordinal = 'nd';
-    } if (monthAndDay.substring(4, 6) <= 3 || monthAndDay.substring(4, 6) === 23) {
+    } if (monthAndDayStrg === 3 || monthAndDayStrg === 23) {
       ordinal = 'rd';
     }
 
-    if (monthAndDay.substring(4, 6) <= 20 && monthAndDay.substring(4, 6) > 3) {
+    if (monthAndDayStrg <= 20 && monthAndDayStrg > 3) {
       ordinal = 'th';
-    } if (monthAndDay.substring(4, 6) >= 24 && monthAndDay.substring(4, 6) <= 31) {
+    } if (monthAndDayStrg >= 24 && monthAndDayStrg <= 31) {
       ordinal = 'th';
     }
     document.getElementById('date').innerHTML = `${dayWeek}, ${monthAndDay}${ordinal} ${year}, ${hour}`;
