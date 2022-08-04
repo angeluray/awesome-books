@@ -103,6 +103,13 @@ h1 {
   padding: 0 4px 0 4px;
   font-size: 100%;
   font-weight: bold;
+  transition: all 0.1s ease-in-out;
+}
+
+.addbtn:active {
+  background-color: rgb(82, 82, 83);
+  transform: scale(1.1);
+  color: white;
 }
 
 input:placeholder {
@@ -118,7 +125,7 @@ input:placeholder {
 }
 
 .display-none {
- display: none !important;
+ display: none;
 }
 
 nav {
@@ -146,6 +153,13 @@ nav {
   border-left: 2px solid gray;
   text-align: center;
   padding-left: 15px;
+  cursor: pointer;
+}
+
+.nav-bar-1 .nav-bar-ul li.active {
+  transform: scale(1.1);
+  color: blue;
+  cursor: unset;
 }
 
 .border-left-none {
@@ -153,21 +167,21 @@ nav {
 }
 
 .nav-bar-2 {
-    display: flex;
-    justify-content: flex-end;
-    margin: 0 15px 0 15px;
-    padding: 3px;
-    font-size: 19px;
-    font-weight: 700;
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 15px 0 15px;
+  padding: 3px;
+  font-size: 19px;
+  font-weight: 700;
 }
 
 main {
-    height: 78vh;
-    margin: 0 15px 0 15px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  height: 78vh;
+  margin: 0 15px 0 15px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 #listContainer {
