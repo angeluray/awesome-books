@@ -22,7 +22,6 @@ const add = () => {
   const newtitle = document.querySelector('#input-title').value;
   const newauthor = document.querySelector('#input-author').value;
 
-  // If the title or the author is empty, then don't add the book
   if (newtitle === '' || newauthor === '') {
     return null;
   }
@@ -49,6 +48,13 @@ const delet = (input) => {
   return collectionBooks;
 };
 
+const initCollectionBooks = (keepBooks) => {
+  keepBooks.forEach((book) => {
+    const bookInfo = new NewBook(book.title, book.author);
+    collectionBooks.push(bookInfo);
+  });
+};
+
 export {
-  add, delet, printf, collectionBooks,
+  add, delet, printf, collectionBooks, initCollectionBooks,
 };

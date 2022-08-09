@@ -1,6 +1,6 @@
 import { addClassDisplay } from './modules/display-sections.js';
 import {
-  add, delet, printf,
+  add, delet, printf, initCollectionBooks,
 } from './modules/books.js';
 import { getBooks, cleanInputs } from './modules/storage.js';
 import { DateTime } from './modules/luxon.js';
@@ -31,6 +31,7 @@ window.addEventListener('DOMContenLoaded', sendDate());
 setInterval(sendDate, 1000);
 
 const keepBooks = getBooks();
+initCollectionBooks(keepBooks);
 printf(keepBooks);
 
 document.getElementById('add-book').addEventListener('click', () => {
