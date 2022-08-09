@@ -1,10 +1,9 @@
 const collectionBooks = [];
 
 class NewBook {
-  constructor(title, author, counter) {
+  constructor(title, author) {
     this.title = title;
     this.author = author;
-    this.counter = counter;
   }
 }
 

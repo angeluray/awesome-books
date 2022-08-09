@@ -10,16 +10,6 @@ document.getElementById('nav-list').addEventListener('click', () => {
   addClassDisplay('list');
 });
 
-// Get date
-const sendDate = () => {
-  const myDate = DateTime.now();
-  document.getElementById('date').innerHTML = myDate.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
-};
-
-// Call get date
-window.addEventListener('DOMContenLoaded', sendDate());
-setInterval(sendDate, 1000);
-
 document.getElementById('nav-new').addEventListener('click', () => {
   addClassDisplay('addNew');
 });
@@ -29,6 +19,16 @@ document.getElementById('nav-contact').addEventListener('click', () => {
 });
 // Set the Add Books section as the main one.
 addClassDisplay('addNew');
+
+// Get date
+const sendDate = () => {
+  const myDate = DateTime.now();
+  document.getElementById('date').innerHTML = myDate.toLocaleString(DateTime.DATETIME_MED_WITH_SECONDS);
+};
+
+// Call get date
+window.addEventListener('DOMContenLoaded', sendDate());
+setInterval(sendDate, 1000);
 
 const keepBooks = getBooks();
 printf(keepBooks);
@@ -46,3 +46,4 @@ booksContainer.addEventListener('click', (e) => {
   const { id } = e.target;
   delet(id);
 });
+
