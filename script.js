@@ -46,4 +46,3 @@ booksContainer.addEventListener('click', (e) => {
   const { id } = e.target;
   delet(id);
 });
-
